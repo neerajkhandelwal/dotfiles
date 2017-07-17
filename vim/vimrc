@@ -1,0 +1,48 @@
+set tabstop=4
+syntax on
+set shiftwidth=4
+set expandtab
+set autoindent
+set smartindent
+set hlsearch
+set ignorecase
+set smartcase
+set number
+set fileencodings=utf-8
+"olorscheme ron
+
+filetype plugin on
+filetype indent on
+:highlight ExtraWhitespace ctermbg=red guibg=red
+" The following alternative may be less obtrusive.
+:highlight ExtraWhitespace ctermbg=darkgreen guibg=lightgreen
+" Try the following if your GUI uses a dark background.
+:highlight ExtraWhitespace ctermbg=darkgreen guibg=darkgreen
+
+set showcmd
+set ofu=syntaxcomplete#Complete
+autocmd FileType php set omnifunc=phpcomplete#CompletePHP
+autocmd FileType phtml set omnifunc=phpcomplete#CompletePHP
+autocmd FileType python set omnifunc=pythoncomplete#Complete
+autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
+autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
+autocmd FileType css set omnifunc=csscomplete#CompleteCSS
+autocmd FileType xml set omnifunc=xmlcomplete#CompleteTags
+autocmd FileType c set omnifunc=ccomplete#Complete
+set incsearch
+
+" tab navigation like firefox
+ :nmap <C-S-tab> :tabprevious<CR>
+ :nmap <C-tab> :tabnext<CR>
+ :map <C-S-tab> :tabprevious<CR>
+ :map <C-tab> :tabnext<CR>
+ :imap <C-S-tab> <Esc>:tabprevious<CR>i
+ :imap <C-tab> <Esc>:tabnext<CR>i
+ :nmap <C-t> :tabnew<CR>
+ :imap <C-t> <Esc>:tabnew<CR>
+
+" visual shifting (does not exit Visual mode)                                      
+vnoremap < <gv
+vnoremap > >gv
+
+execute pathogen#infect()
